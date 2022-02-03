@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myapp/results.dart';
 import 'enum_file.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -13,14 +14,14 @@ class _InputPageState extends State<InputPage> {
   Gender? selectedCard;
   int sliderValue = 176;
   int weight = 65;
-  int age = 20;
+  int age = 18;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: HexColor('#141414'),
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: HexColor('#111111'),
         centerTitle: true,
       ),
       body: Column(
@@ -41,8 +42,8 @@ class _InputPageState extends State<InputPage> {
                         children: [
                           Icon(
                             FontAwesomeIcons.mars,
-                            color: Colors.yellowAccent,
-                            size: 100,
+                            color: Colors.yellow,
+                            size: 85,
                           ),
                           SizedBox(
                             height: 12,
@@ -51,18 +52,18 @@ class _InputPageState extends State<InputPage> {
                             'MALE',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.normal,
                             ),
                           ),
                         ],
                       ),
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: selectedCard == Gender.male
-                              ? Colors.grey
-                              : Colors.black),
+                              ? HexColor('#6b6b6b')
+                              : HexColor('#2C2C2C')),
                     ),
                   ),
                 ),
@@ -83,7 +84,7 @@ class _InputPageState extends State<InputPage> {
                           Icon(
                             FontAwesomeIcons.venus,
                             color: Colors.yellow,
-                            size: 100,
+                            size: 85,
                           ),
                           SizedBox(
                             height: 12,
@@ -92,18 +93,18 @@ class _InputPageState extends State<InputPage> {
                             'FEMALE',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.normal,
                             ),
                           ),
                         ],
                       ),
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: selectedCard == Gender.female
                               ? Colors.grey
-                              : Colors.black),
+                              : HexColor('#2C2C2C')),
                     ),
                   ),
                 )
@@ -125,9 +126,12 @@ class _InputPageState extends State<InputPage> {
                           'HEIGHT',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.normal,
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Row(
                             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -138,7 +142,7 @@ class _InputPageState extends State<InputPage> {
                                 sliderValue.toString(),
                                 style: TextStyle(
                                   color: Colors.yellow,
-                                  fontSize: 70,
+                                  fontSize: 50,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -146,7 +150,7 @@ class _InputPageState extends State<InputPage> {
                                 'cm',
                                 style: TextStyle(
                                   color: Colors.yellow,
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -160,14 +164,15 @@ class _InputPageState extends State<InputPage> {
                               sliderValue = value.toInt();
                             });
                           },
-                          inactiveColor: Colors.yellow,
+                          inactiveColor: HexColor('#141414'),
+                          activeColor : Colors.yellow,
                         ),
                       ],
                     ),
-                    margin: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.black),
+                        color: HexColor('#2C2C2C')),
                   ),
                 ),
               ],
@@ -188,17 +193,23 @@ class _InputPageState extends State<InputPage> {
                           'WEIGHT',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.normal,
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Text(
                           '$weight',
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 60,
+                            fontSize: 40,
                             fontWeight: FontWeight.bold,
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -210,11 +221,11 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                               child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 28,
+                                backgroundColor: HexColor('#414141'),
+                                radius: 20,
                                 child: Icon(
                                   FontAwesomeIcons.plus,
-                                  color: Colors.grey,
+                                  color: Colors.yellow,
                                 ),
                               ),
                             ),
@@ -225,11 +236,11 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                               child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 28,
+                                backgroundColor: HexColor('#414141'),
+                                radius: 20,
                                 child: Icon(
                                   FontAwesomeIcons.minus,
-                                  color: Colors.grey,
+                                  color: Colors.yellow,
                                 ),
                               ),
                             ),
@@ -237,10 +248,10 @@ class _InputPageState extends State<InputPage> {
                         ),
                       ],
                     ),
-                    margin: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.black),
+                        color: HexColor('#2C2C2C')),
                   ),
                 ),
                 Expanded(
@@ -252,17 +263,23 @@ class _InputPageState extends State<InputPage> {
                           'AGE',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.normal,
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Text(
                           '$age',
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 60,
+                            fontSize: 40,
                             fontWeight: FontWeight.bold,
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -274,11 +291,11 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                               child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 28,
+                                backgroundColor: HexColor('#414141'),
+                                radius: 20,
                                 child: Icon(
                                   FontAwesomeIcons.plus,
-                                  color: Colors.grey,
+                                  color: Colors.yellow,
                                 ),
                               ),
                             ),
@@ -289,11 +306,11 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                               child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 28,
+                                backgroundColor: HexColor('#414141'),
+                                radius: 20,
                                 child: Icon(
                                   FontAwesomeIcons.minus,
-                                  color: Colors.grey,
+                                  color: Colors.yellow,
                                 ),
                               ),
                             ),
@@ -301,10 +318,10 @@ class _InputPageState extends State<InputPage> {
                         ),
                       ],
                     ),
-                    margin: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.black),
+                        color: HexColor('#2C2C2C')),
                   ),
                 )
               ],
@@ -327,9 +344,9 @@ class _InputPageState extends State<InputPage> {
               );
             },
             child: Container(
-              color: Colors.red,
+              color: HexColor('#e32231'),
               width: double.infinity,
-              height: 60,
+              height: 50,
               child: Center(
                 child: Text(
                   'CALCULATE',

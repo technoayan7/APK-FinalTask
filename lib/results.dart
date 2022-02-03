@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/formula.dart';
 import 'package:share/share.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class ResultsPage extends StatefulWidget {
   int weight;
@@ -16,6 +17,7 @@ class ResultsPage extends StatefulWidget {
 class _ResultsPageState extends State<ResultsPage> {
   Logic logic = Logic();
   double bmiResults = 0;
+
   @override
   void initState() {
     bmiResults = logic.calculate(widget.height, widget.weight);
@@ -25,9 +27,10 @@ class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: HexColor('#141414'),
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
+        backgroundColor: HexColor('#111111'),
         centerTitle: true,
         actions: [
           Padding(
@@ -35,7 +38,8 @@ class _ResultsPageState extends State<ResultsPage> {
             child: IconButton(
               icon: Icon(Icons.share_outlined),
               onPressed: () {
-                Share.share("My BMI Result is" + " ${bmiResults.toStringAsFixed(1)}");
+                Share.share(
+                    "My BMI Result is" + " ${bmiResults.toStringAsFixed(2)}");
               },
             ),
           )
@@ -44,19 +48,22 @@ class _ResultsPageState extends State<ResultsPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Text(
-              'BMI RESULTS',
+              'Your BMI Result is ',
               style: TextStyle(
-                  fontSize: 60,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Colors.yellow),
             ),
+            SizedBox(
+              height: 20,
+            ),
             Text(
-              "Your BMI Result is" + " ${bmiResults.toStringAsFixed(1)}",
+              " ${bmiResults.toStringAsFixed(2)}",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 65,
                 color: Colors.yellowAccent,
                 fontWeight: FontWeight.bold,
               ),
@@ -64,6 +71,43 @@ class _ResultsPageState extends State<ResultsPage> {
             SizedBox(
               height: 30,
             ),
+           if(bmiResults < 18.5) ... [
+             Text(
+              'You are Underweight! Get some healthy diet',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow),
+            ),
+           ] else if(bmiResults  < 25) ... [
+              Text(
+              'Yay ! You body is fine',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow),
+            ),
+           ] else if(bmiResults  < 30) ... [
+              Text(
+              'You are overweight! Start doing some exercise',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow),
+            ),
+           ] else ... [
+              Text(
+              'You are obese !! Get some exercise',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow),
+            ),
+           ],
           ],
         ),
       ),
