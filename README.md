@@ -1,8 +1,12 @@
-# myapp
+# SizzleApp
 
 A new Flutter project.
 
 ## Getting Started
+
+
+https://user-images.githubusercontent.com/87315325/152389599-8232593a-b394-4e0b-99b4-54e0064e2d7a.mp4
+
 
 This project is a starting point for a Flutter application.
 
